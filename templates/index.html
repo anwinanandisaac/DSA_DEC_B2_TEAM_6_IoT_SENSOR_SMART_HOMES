@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    
+</head>
+
+<body>
+  <h1>!! WELCOME TO THE IoT and SENSOR DATASET PREDICTION SITE !!</h1>
+  <h2>   Here we use a SMART_HOME_DATASET to predict weather we use Decision Tree Classifier to obtain Weather Results:</h2>
+      
+    <form action="/predict" method="post" class="container">
+      <label for="icon_status">icon_status:</label>
+      <select id="icon_status" name="icon_status">
+        <option value="Select">Select</option>
+        <option value="clear-day">clear-day</option>
+        <option value="clear-night">clear-night</option>
+        <option value="cloudy">cloudy</option>
+        <option value="fog">fog</option>
+        <option value="partly-cloudy-day">partly-cloudy-day</option>
+        <option value="partly-cloudy-night">partly-cloudy-night</option>
+        <option value="rain">rain</option>
+        <option value="snow">snow</option>
+        <option value="wind">wind</option>
+      </select><br><br>
+
+         
+      <label for="use_KW">use_KW:</label>
+      <input type="text" id="use_KW" name="use" required><br><br>
+
+      <label for="gen_KW">gen_KW:</label>
+      <input type="text" id="gen_KW" name="gen" required><br><br>
+
+      <label for="Dishwasher_kW">Dishwasher_kW:</label>
+      <input type="text" id="Dishwasher_kW" name="Dishwasher" required><br><br>
+
+      <label for="Furnace_1_kW">Furnace_1_kW:</label>
+      <input type="text" id="Furnace_1_kW" name="Furnace 1" required><br><br>
+
+      <label for="Furnace_2_kW">Furnace_2_kW:</label>
+      <input type="text" id="Furnace_2_kW" name="Furnace 2" required><br><br>
+
+      <label for="Home_office_kW">Home_office_kW:</label>
+      <input type="text" id="Home_office_kW" name="Home office" required><br><br>
+
+      <label for="Fridge_kW">Fridge_kW:</label>
+      <input type="text" id="Fridge_kW" name="Fridge" required><br><br>
+
+      <label for="Wine_cellar_kW">Wine_cellar_kW:</label>
+      <input type="text" id="Wine_cellar_kW" name="Wine cellar" required><br><br>
+
+      <label for="Garage_door_kW">Garage_door_kW:</label>
+      <input type="text" id="Garage_door_kW" name="Garage door" required><br><br>
+
+      <label for="Kitchen_12_kW">Kitchen_12_kW:</label>
+      <input type="text" id="Kitchen_12_kW" name="Kitchen 12" required><br><br>
+
+      <label for="Kitchen_14_kW">Kitchen_14_kW:</label>
+      <input type="text" id="Kitchen_14_kW" name="Kitchen 14" required><br><br>
+
+      <label for="Kitchen_38_kW">Kitchen_38_kW:</label>
+      <input type="text" id="Kitchen_38_kW" name="Kitchen 38" required><br><br>
+
+      <label for="Barn_kW">Barn_kW:</label>
+      <input type="text" id="Barn_kW" name="Barn" required><br><br>
+
+      <label for="Well_kW">Well_kW:</label>
+      <input type="text" id="Well_kW" name="Well" required><br><br>
+
+      <label for="Microwave_kW">Microwave_kW:</label>
+      <input type="text" id="Microwave_kW" name="Microwave" required><br><br>
+
+      <label for="Living_room_kW">Living_room_kW:</label>
+      <input type="text" id="Living_room_kW" name="Living room" required><br><br>
+
+      <label for="temperature">temperature:</label>
+      <input type="text" id="temperature" name="temperature" required><br><br>
+
+      <label for="humidity">humidity:</label>
+      <input type="text" id="humidity" name="humidity" required><br><br>
+
+      <label for="visibility">visibility:</label>
+      <input type="text" id="visibility" name="visibility" required><br><br>
+
+      <label for="pressure">pressure:</label>
+      <input type="text" id="pressure" name="pressure" required><br><br>
+
+      <label for="windSpeed">windSpeed:</label>
+      <input type="text" id="windSpeed" name="windSpeed" required><br><br>
+
+      <label for="cloudCover">cloudCover:</label>
+      <input type="text" id="cloudCover" name="cloudCover" required><br><br>
+
+      <label for="windBearing">windBearing:</label>
+      <input type="text" id="windBearing" name="windBearing" required><br><br>
+
+      <label for="precipIntensity">precipIntensity:</label>
+      <input type="text" id="precipIntensity" name="precipIntensity" required><br><br>
+
+      <label for="precipProbability">precipProbability:</label>
+      <input type="text" id="precipProbability" name="precipProbability" required><br><br>
+      <button type="submit"> Predict </button><br><br>
+      
+
+    
+        
+    </form>
+  
+    <h1>RESULT OF THE PREDICTION</h1><br>
+    <h2>The predicted weather is:  </h2><br>
+    {% if (pred_res)==0:  %}
+    <h2>  Breezy  </h2>
+    {% elif (pred_res)==1:  %}
+    <h2>  Breezy and Mostly Cloudy </h2>
+    {% elif (pred_res)==2:  %}
+    <h2>  Breezy and Partly Cloudy </h2>
+    {% elif (pred_res)==3:  %}
+    <h2>  Clear </h2>
+    {% elif (pred_res)==4:  %}
+    <h2>  Drizzle </h2>
+    {% elif (pred_res)==5:  %}
+    <h2>  Dry </h2>
+    {% elif (pred_res)==6:  %}
+    <h2>  Flurries </h2>
+    {% elif (pred_res)==7:  %}
+    <h2>  Flurries and Breezy </h2>
+    {% elif (pred_res)==8:  %}
+    <h2>  Foggy </h2>
+    {% elif (pred_res)==9:  %}
+    <h2>  Heavy Snow </h2>
+    {% elif (pred_res)==10:  %}
+    <h2>  Light Rain </h2>
+    {% elif (pred_res)==11:  %}
+    <h2>  Light Snow </h2>
+    {% elif (pred_res)==12:  %}
+    <h2>  Mostly Cloudy </h2>
+    {% elif (pred_res)==13:  %}
+    <h2>  Overcast </h2>
+    {% elif (pred_res)==14:  %}
+    <h2>  Partly Cloudy </h2>
+    {% elif (pred_res)==15:  %}
+    <h2>  Rain </h2>
+    {% elif (pred_res)==16:  %}
+    <h2>  Rain and Breezy </h2>
+    {% elif (pred_res)==17:  %}
+    <h2>  Snow </h2>
+    {% endif %}
+</body> 
+</html> 
+  
+
+
